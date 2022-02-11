@@ -1,0 +1,10 @@
+<div class="content-message">
+  <mat-chip-list aria-orientation="vertical" aria-label="Fish selection">
+    <mat-chip *ngFor="let message of messages" (removed)="remove(message)">
+      {{ message }}
+      <button matChipRemove>
+        <mat-icon>cancel</mat-icon>
+      </button>
+    </mat-chip>
+  </mat-chip-list>
+</div>
