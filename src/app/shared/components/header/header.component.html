@@ -1,44 +1,56 @@
-<mat-toolbar color="primary">
-  <span>MI APP </span>
-  <ng-container *ngIf="!isLogged; else viewAdmin">
-    <span class="spacer"></span>
-  </ng-container>
-  <div>
-    <a *ngIf="isLogged" mat-button routerLink="dashboard">Dashboard</a>
-    <a *ngIf="!isLogged; else viewLogout" mat-button routerLink="login"
-      >Login</a
-    >
+<mat-toolbar color="primary" class="container-menu">
+  <div class="menu-left">
+    <ng-container *ngIf="!isLogged; else viewAdmin">
+      <span class="spacer"></span>
+    </ng-container>
+
+    <a *ngIf="!isLogged" mat-button routerLink="login">Login</a>
   </div>
+
+  <div *ngIf="!isLogged; else viewUserIsLoggued"></div>
 </mat-toolbar>
 
 <ng-template #viewAdmin>
   <button mat-icon-button (click)="onToggleSidenav()">
-    <mat-icon>menu</mat-icon>
+    <mat-icon *ngIf="!openSidenav"> view_list</mat-icon>
+    <mat-icon *ngIf="openSidenav"> menu</mat-icon>
+    <span class="name-app">MI APP </span>
   </button>
-  <span class="spacer"></span>
 </ng-template>
 
-<ng-template #viewLogout>
-  <a mat-button (click)="logout()"><span translate>logout</span></a>
-  <button mat-button [matMenuTriggerFor]="menu">
-    <span translate>language</span>
-  </button>
-  <mat-menu #menu="matMenu">
-    <button mat-menu-item (click)="changeLanguaje('en')">
-      <span
-        *ngIf="current_lang === 'en'"
-        class="material-icons done-checked-icon-lang"
+<ng-template #viewUserIsLoggued>
+  <div class="menu-right">
+    <button mat-button>
+      <mat-icon aria-hidden="false" aria-label="Example home icon"
+        >account_circle</mat-icon
       >
-        done </span
-      >Ingles
+      <span translate>{{ username }} - {{ role }}</span>
     </button>
-    <button mat-menu-item (click)="changeLanguaje('es')">
-      <span
-        *ngIf="current_lang === 'es'"
-        class="material-icons done-checked-icon-lang"
+    <button mat-button [matMenuTriggerFor]="menu">
+      <mat-icon aria-hidden="false" aria-label="Example home icon"
+        >language</mat-icon
       >
-        done </span
-      >Español
+      <span translate>language</span>
     </button>
-  </mat-menu>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item (click)="changeLanguaje('en')">
+        <span
+          *ngIf="current_lang === 'en'"
+          class="material-icons done-checked-icon-lang"
+        >
+          done </span
+        >Ingles
+      </button>
+      <button mat-menu-item (click)="changeLanguaje('es')">
+        <span
+          *ngIf="current_lang === 'es'"
+          class="material-icons done-checked-icon-lang"
+        >
+          done </span
+        >Español
+      </button>
+    </mat-menu>
+  </div>
 </ng-template>
+
+<router-outlet></router-outlet>

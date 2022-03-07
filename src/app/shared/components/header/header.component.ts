@@ -16,7 +16,10 @@ import { TranslateConfigService } from '@app/shared/services/translate-config.se
 })
 export class HeaderComponent implements OnInit {
   isLogged: boolean = false;
+  openSidenav: boolean = false;
   current_lang: string = '';
+  username: string = '';
+  role: string = '';
   @Output() toggleSidenav = new EventEmitter();
 
   constructor(
@@ -30,6 +33,8 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
     this.store.select(NAME_STORAGE_AUTH).subscribe((auth) => {
       this.isLogged = auth.user.isLoggued;
+      this.username = auth.user.name || '';
+      this.role = auth.user.role || '';
     });
     this.store.select('lang').subscribe((language) => {
       this.current_lang = language.lang;
@@ -43,13 +48,6 @@ export class HeaderComponent implements OnInit {
 
   onToggleSidenav(): void {
     this.toggleSidenav.emit();
-  }
-
-  logout() {
-    this.store.dispatch(LOGIN_ACTIONS.LOGOUT_ACTION());
-    this.AuthScv.logout();
-    this.onToggleSidenav();
-    this.BroadcastSvc.messagesHttp.next(['the user closed session']);
-    this.router.navigate(['/login']);
+    this.openSidenav = !this.openSidenav;
   }
 }

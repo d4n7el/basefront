@@ -19,6 +19,6 @@ const _languageReducer = createReducer(
   }))
 );
 
-export function loginReducer(state: statelang | undefined, action: Action) {
+export function langReducer(state: statelang | undefined, action: Action) {
   return _languageReducer(state, action);
 }

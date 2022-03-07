@@ -1,0 +1,39 @@
+@import "/src/app/shared/theme/colors.scss";
+
+.container-sidebar {
+  height: 92vh;
+  .sidebar-info-user {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 30px;
+    .material-icons {
+      font-size: 30px;
+      margin-right: 10px;
+    }
+    small {
+      font-size: 17px;
+    }
+  }
+
+  .menu-bottom {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    bottom: 30px;
+    width: 100%;
+    .btn-sidebar-logout {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding-bottom: 10px;
+      background-color: rgba($color: #000000, $alpha: 0.1);
+      .material-icons {
+        margin-left: -3px;
+        color: $color-fifth;
+        font-size: 32px;
+        font-weight: 600;
+      }
+    }
+  }
+}

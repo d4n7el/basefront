@@ -1,0 +1,9 @@
+.git
+.editor_config
+node_modules
+npm-debug.log
+/e2e
+/docs
+/gitignore
+*.zip
+*.md

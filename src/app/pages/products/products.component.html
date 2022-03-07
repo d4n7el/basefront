@@ -1,0 +1,21 @@
+<p>products works!</p>
+
+<button mat-button color="primary">Primary</button>
+<button mat-button color="warn">Warn</button>
+
+<app-table
+  *ngIf="dataProducts && dataProducts.length"
+  (selections)="changeSelection($event)"
+  (page)="refreshPage($event)"
+  (sort)="sortData($event)"
+  [data]="dataProducts"
+  [configuration]="configuration"
+></app-table>
+
+<app-upload
+  (formDataUpload)="formDataUpload($event)"
+  [typeView]="typeViewUploadComponent.BASICSTYLE"
+  [typeDirection]="typeDirectionUploadComponent.HORIZONTAL"
+  [urlUpload]="'https://localhost/3000'"
+  [buttonUpload]="true"
+></app-upload>

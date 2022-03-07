@@ -1,0 +1,42 @@
+table {
+  width: 100%;
+}
+.color-blue {
+  color: blue;
+}
+
+.bg-color-yellow {
+  background-color: yellow;
+}
+
+.bg-color-green {
+  background-color: green !important;
+}
+
+.bg-color-red {
+  background-color: red;
+}
+
+.mat-bg-color-red {
+  background-color: red;
+}
+
+.bg-color-pink {
+  background-color: pink;
+}
+
+.bg-color-brown {
+  background-color: brown;
+}
+
+.bg-color-black {
+  background-color: black;
+  .mat-cell,
+  .mat-footer-cell {
+    color: white;
+  }
+}
+
+.mat-cell {
+  padding-left: 10px;
+}

@@ -10,7 +10,7 @@
       <mat-toolbar>
         <span color="primary"> Menu </span>
       </mat-toolbar>
-      <app-sidebar></app-sidebar>
+      <app-sidebar (toggleSidenav)="sidenav.toggle()"></app-sidebar>
     </mat-sidenav>
     <mat-sidenav-content>
       <app-header (toggleSidenav)="sidenav.toggle()"></app-header>

@@ -1,0 +1,6 @@
+<ng-container *ngComponentOutlet="component; injector: injector"></ng-container>
+
+<div mat-dialog-actions>
+  <button mat-button (click)="handleCancel()">No</button>
+  <button mat-button [mat-dialog-close]="true" (click)="handleOk()">Si</button>
+</div>

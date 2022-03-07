@@ -35,6 +35,8 @@ const routes: Routes = [
       ),
     canActivate: [CheckLogguedGuard],
   },
+  { path: 'recover', loadChildren: () => import('./pages/recover/recover.module').then(m => m.RecoverModule) },
+  { path: 'products', loadChildren: () => import('./pages/products/products.module').then(m => m.ProductsModule) },
   {
     path: '**',
     component: NotfoundComponent,

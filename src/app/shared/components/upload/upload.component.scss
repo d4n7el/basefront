@@ -1,0 +1,126 @@
+.horizontal {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fill, minmax(17rem, 2fr));
+}
+
+.vertical {
+  div.container-upload {
+    width: 200px;
+  }
+}
+
+.basic-style {
+  position: relative;
+  display: inline-block;
+  border: 3px dotted rgba(gray, 0.1);
+  border-radius: 10px;
+  padding: 2px;
+
+  input[type="file"] {
+    position: absolute;
+    left: 0;
+    opacity: 0;
+    background-color: red;
+    width: 100%;
+    height: 100%;
+    display: inline-block;
+  }
+
+  div.container-upload {
+    position: relative;
+    background-color: #f1f1f1;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+    border-radius: 10px;
+    height: 200px;
+    display: block;
+    padding: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    div.container {
+      p {
+        text-align: center;
+        opacity: 0.4;
+        font-size: 14px;
+      }
+      div.title {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      div.button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        span.material-icons {
+          width: 60px;
+          height: 60px;
+          font-size: 65px;
+          color: green;
+        }
+      }
+    }
+  }
+  div.detail-upload {
+    overflow: scroll;
+    height: 230px;
+    padding-top: 20px;
+    div.button-upload {
+      justify-content: center;
+      align-items: center;
+      display: flex;
+      cursor: pointer;
+      span {
+        position: absolute;
+        top: -35px;
+        color: green;
+        font-size: 46px;
+        background-color: white;
+        border-radius: 50%;
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+        padding: 10px;
+      }
+    }
+
+    div.file-detail {
+      padding: 12px 25px;
+      display: flex;
+      justify-content: space-between;
+
+      div.header {
+        width: 15%;
+        display: flex;
+        justify-content: center;
+
+        span.material-icons {
+          margin-right: 10px;
+          font-size: 27px;
+          color: green;
+        }
+      }
+      div.body {
+        width: 80%;
+        div.body-info {
+          display: flex;
+          justify-content: space-between;
+        }
+        div.progress {
+          margin-top: 10px;
+          margin-bottom: 4px;
+        }
+        span.size {
+          margin-left: 10px;
+          opacity: 0.7;
+          font-size: 10px;
+        }
+      }
+    }
+  }
+}
+
+.error {
+  .mat-progress-bar-fill::after {
+    background-color: red !important;
+  }
+}

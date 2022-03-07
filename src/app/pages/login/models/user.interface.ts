@@ -7,7 +7,8 @@ export interface UserLogin {
 
 export interface UserResponseLogin {
   token: string | null;
-  user_id: number | null;
-  role: string | null;
   isLoggued: boolean;
+  role: string | null;
+  user_id: number | null;
+  name: string | null;
 }

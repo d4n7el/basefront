@@ -13,10 +13,11 @@ export interface stateLogin {
 
 export const initialState: stateLogin = {
   user: {
-    user_id: null,
     token: null,
     isLoggued: false,
+    user_id: null,
     role: null,
+    name: null,
   },
 };
 
@@ -26,9 +27,7 @@ const _loginReducer = createReducer(
     ...state,
     user: { ...user },
   })),
-  on(LOGOUT_ACTION, (state) => ({
-    user: { user_id: null, token: '', isLoggued: false, role: '' },
-  }))
+  on(LOGOUT_ACTION, (state) => initialState)
 );
 
 export function loginReducer(state: stateLogin | undefined, action: Action) {

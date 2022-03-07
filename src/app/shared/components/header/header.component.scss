@@ -6,3 +6,25 @@
   right: 10px;
   color: $color-fifth;
 }
+
+.mat-toolbar.mat-primary {
+  background-color: $color-fifth;
+}
+
+.container-menu {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  .menu-right {
+    position: absolute;
+    right: 0;
+  }
+  .material-icons {
+    margin-right: 10px;
+  }
+}
+
+.name-app {
+  padding-top: 15px !important;
+  font-size: 25px;
+}

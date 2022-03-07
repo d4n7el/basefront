@@ -1,4 +1,14 @@
-<mat-list-item>
-  hola
-  <mat-icon>password</mat-icon>
-</mat-list-item>
+<div class="container-sidebar">
+  <div class="menu-top">
+    <div class="sidebar-info-user">
+      <mat-icon aria-hidden="false">account_circle</mat-icon>
+      <small> {{ username }} </small>
+    </div>
+  </div>
+
+  <div class="menu-bottom">
+    <button mat-button class="btn-sidebar-logout" (click)="onToggleSidenav()">
+      <mat-icon aria-hidden="false">power_settings_new</mat-icon>
+    </button>
+  </div>
+</div>

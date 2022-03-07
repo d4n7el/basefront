@@ -1,0 +1,59 @@
+<p>upload works!</p>
+
+<div class="{{ typeView }}  {{ typeDirection }}">
+  <div class="container-upload">
+    <div class="container">
+      <div class="title">
+        <p>selecciona el archivo</p>
+      </div>
+      <div class="button">
+        <span class="material-icons"> attach_file </span>
+      </div>
+    </div>
+    <input type="file" multiple (change)="changeFile($event)" [accept]="" />
+  </div>
+  <div class="detail-upload">
+    <div
+      class="button-upload"
+      *ngIf="files && files.length > 0 && buttonUpload && urlUpload !== ''"
+    >
+      <span (click)="uploadFile()" class="material-icons"> cloud_upload </span>
+    </div>
+    <div
+      class="file-detail {{ progressColors[i] }}"
+      *ngFor="let file of files; let i = index"
+    >
+      <div class="header">
+        <span class="material-icons" *ngIf="file.type === 'application/pdf'">
+          description
+        </span>
+        <span class="material-icons" *ngIf="file.type === 'image/png'">
+          perm_media
+        </span>
+        <span class="material-icons" *ngIf="file.type === 'application/zip'">
+          folder_zip
+        </span>
+      </div>
+      <div class="body">
+        <div class="body-info">
+          <span class="">
+            {{ file.name | slice: 0:18 }}
+          </span>
+          <span class="size">
+            {{ file.size / 1024 / 1024 | number: "0.1-2" }} MB
+          </span>
+        </div>
+        <div class="progress" *ngIf="autoUpload || buttonUpload">
+          <mat-progress-bar
+            [color]="progressColors[i] === 'ok' ? '' : 'warn'"
+            mode="determinate"
+            value="{{ progressInfos[i]?.value || 0 }}"
+          ></mat-progress-bar>
+        </div>
+        <small *ngIf="autoUpload || buttonUpload"
+          >{{ progressInfos[i]?.value || "0" }}%</small
+        >
+      </div>
+    </div>
+  </div>
+</div>

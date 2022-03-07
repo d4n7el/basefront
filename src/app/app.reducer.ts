@@ -9,5 +9,5 @@ export interface AppState {
 
 export const AppReducers: ActionReducerMap<AppState> = {
   auth: login.loginReducer,
-  lang: lang.loginReducer,
+  lang: lang.langReducer,
 };
